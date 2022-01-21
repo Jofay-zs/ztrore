@@ -45,12 +45,19 @@ I thought of two options for the future of this project.
     Solidity compiles on the EVM(Ethereum Virtual Machine)
 
 - ## [Open Zeppelin](https://docs.openzeppelin.com/openzeppelin/)
-    Since the smart contracts are standardized and do found management, the biggest concern is security. For this exist organizations like Open Zeppelin, which provide standar smart contracts, open source and previously audited. I used smart contracts from Open Zeppelin like ERC721, ERC721Enumerable...
+    Since the smart contracts are standardized and do found management, the biggest concern is security. For this exist organizations like Open Zeppelin, which provide standar smart contracts, open source and previously audited. I used smart contracts and functions from Open Zeppelin like:
+    - [ERC721](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721)
+        Standard for NFTs, links to know more:
+        - [link01](https://eips.ethereum.org/EIPS/eip-721)
+        - [link02](https://github.com/ethereum/EIPs/issues/721)
+    - [ERC721 Enumrable](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721Enumerable)
+    - [Counters](https://docs.openzeppelin.com/contracts/4.x/api/utils#Counters)
 
 - ## JS
 
 - ## [Avatars Generator](https://getavataaars.com/)
     The API that I used to generate the NFTs
+    
 
 # My path
 The first thing I do was reinforce my knowledge in blockchain, NFTs, Solidity, Ethereum and Web3. Once I felt good, I start developing the smart-contracts and backend. Finally whit the hard part done, I start developing the front-end
@@ -62,8 +69,3 @@ Your script and contract is not deployed to a central server, it is added to the
 ## EIP and ERC
 An EIP or Ethereum Improvement Proposals are formal documents which contains improvement proposals for the Ethereum protocol. And ERC or Ethereum Request for Comments are preliminary proposals for the EIP.
 
-## ERC721
-Standard for NFTs, links to know more:
-- [link01](https://eips.ethereum.org/EIPS/eip-721)
-- [link02](https://github.com/ethereum/EIPs/issues/721)
-- [link03](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721)
