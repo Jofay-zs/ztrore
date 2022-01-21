@@ -69,3 +69,10 @@ Your script and contract is not deployed to a central server, it is added to the
 ## EIP and ERC
 An EIP or Ethereum Improvement Proposals are formal documents which contains improvement proposals for the Ethereum protocol. And ERC or Ethereum Request for Comments are preliminary proposals for the EIP.
 
+## Metadata
+Extension of a standard, which allow us to add more information to a token, like name, description or tokeURI.
+
+## [Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
+A url that can return things.
+
+## ADN

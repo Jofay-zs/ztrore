@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "./Base64.sol";
 
 contract ztrore is ERC721, ERC721Enumerable {
     using Counters for Counters.Counter;
@@ -12,7 +13,7 @@ contract ztrore is ERC721, ERC721Enumerable {
     uint256 public maxSupply; //limit
 
     constructor(uint256 _maxSupply) ERC721("ztrore", "ZTR") {
-        maxSupply =_maxSupply;
+        maxSupply = _maxSupply;
     }
 
     function mint() public {
@@ -22,9 +23,34 @@ contract ztrore is ERC721, ERC721Enumerable {
         _idCounter.increment();
     }
 
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        override
+        returns (string memory)
+    {
+        require(
+            _exists(tokenId),
+            "ERC721 Metadata: URI query for nonexistent token :("
+        );
+
+        string memory jsonURI = Base64.encode( //Base64.encode take my bytes memory and returns a string
+            // abi.encodePacked concatenates my JSON and return it like a bytes memory
+            abi.encodePacked(
+                '{ "name": "ztrore #',
+                tokenId,
+                '", "description": "ztrore are randomized NFTs stored on chain to create a DApp, speciffically a NFT markeplace", "image":"',
+                "imageurl",
+                '"}'
+            )
+        );
+
+        return string(abi.encodePacked("data:application/json;base64,", jsonURI));
+    }
+
     // The following functions are overrides required by Solidity.
     // ERC721Enumerable saves a map with the number of tokens and the list of those belonging to an address.
-    // Each time a token transfer is made, this token needs to be extracted from this list and 
+    // Each time a token transfer is made, this token needs to be extracted from this list and
     // insert it on a new map, which coresponds with the new owner of this NFT
     function _beforeTokenTransfer(
         address from,
@@ -33,6 +59,7 @@ contract ztrore is ERC721, ERC721Enumerable {
     ) internal override(ERC721, ERC721Enumerable) {
         super._beforeTokenTransfer(from, to, tokenId);
     }
+
     function supportsInterface(bytes4 interfaceId)
         public
         view
