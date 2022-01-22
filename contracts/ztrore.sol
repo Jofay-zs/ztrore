@@ -4,11 +4,13 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 import "./Base64.sol";
 import "./ztroreDNA.sol";
 
 contract ztrore is ERC721, ERC721Enumerable, ztroreDNA {
     using Counters for Counters.Counter;
+    using Strings for uint256;
 
     Counters.Counter private _idCounter;
     uint256 public maxSupply; //limit
@@ -92,7 +94,7 @@ contract ztrore is ERC721, ERC721Enumerable, ztroreDNA {
             // abi.encodePacked concatenates my JSON and return it like a bytes memory
             abi.encodePacked(
                 '{ "name": "ztrore #',
-                tokenId,
+                tokenId.toString(),
                 '", "description": "ztrore are randomized NFTs stored on chain to create a DApp, speciffically a NFT markeplace", "image":"',
                 image,
                 '"}'

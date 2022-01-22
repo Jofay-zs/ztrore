@@ -28,7 +28,7 @@ The biggest problem I found was in smart contracts, due to my little knowledge o
 ## Improvements for the future 🔮
 I thought of two options for the future of this project.
 1. Use other APIs to generate different NFTs, some examples of APIs that I found was, a kitten API generator, a Robot API generator and a Monster API generator.
-2. Which personally I consider more difficult, but exciting, is re-create the entire app with assets created by me, and adding more metadata, to create more unique and different NFTs. Explore smart contracts more and use more features of the technologies that I used.
+2. Which personally I consider more difficult, but exciting, is re-create the entire app with assets created by me, and adding more metadata, to create more unique and different NFTs. Explore smart contracts more and use more features of the technologies that I used. Also I can implement chainlink so the generation of nft is not predictible.
 
 # Tools and technologies used
 - ## [Hardhat](https://hardhat.org/getting-started/)
