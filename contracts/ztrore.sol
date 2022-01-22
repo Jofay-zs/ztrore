@@ -5,12 +5,14 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "./Base64.sol";
+import "./ztroreDNA.sol";
 
-contract ztrore is ERC721, ERC721Enumerable {
+contract ztrore is ERC721, ERC721Enumerable, ztroreDNA {
     using Counters for Counters.Counter;
 
     Counters.Counter private _idCounter;
     uint256 public maxSupply; //limit
+    mapping(uint256 => uint256) public tokenDNA;
 
     constructor(uint256 _maxSupply) ERC721("ztrore", "ZTR") {
         maxSupply = _maxSupply;
@@ -19,8 +21,57 @@ contract ztrore is ERC721, ERC721Enumerable {
     function mint() public {
         uint256 current = _idCounter.current();
         require(current < maxSupply, "No NFTs left :("); //limit
+        tokenDNA[current] = calculatingDNA(current, msg.sender);
         _safeMint(msg.sender, current);
         _idCounter.increment();
+    }
+
+    function _baseURI() internal pure override returns (string memory) {
+        return "https://avataaars.io/";
+    }
+
+    function _paramsURI(uint256 _dna) internal view returns (string memory) {
+        string memory params;
+
+        {
+            params = string(
+                abi.encodePacked(
+                    "accessoriesType=",
+                    getAccessoriesType(_dna),
+                    "&clotheColor=",
+                    getClotheColor(_dna),
+                    "&clotheType=",
+                    getClotheType(_dna),
+                    "&eyeType=",
+                    getEyeType(_dna),
+                    "&eyebrowType=",
+                    getEyeBrowType(_dna),
+                    "&facialHairColor=",
+                    getFacialHairColor(_dna),
+                    "&facialHairType=",
+                    getFacialHairType(_dna),
+                    "&hairColor=",
+                    getHairColor(_dna),
+                    "&hatColor=",
+                    getHatColor(_dna),
+                    "&graphicType=",
+                    getGraphicType(_dna),
+                    "&mouthType=",
+                    getMouthType(_dna),
+                    "&skinColor=",
+                    getSkinColor(_dna)
+                )
+            );
+        }
+
+        // We return the url params to generate the NFT
+        return string(abi.encodePacked(params, "&topType=", getTopType(_dna)));
+    }
+
+    function imageByDNA(uint256 _dna) public view returns (string memory) {
+        string memory baseURI = _baseURI();
+        string memory paramsURI = _paramsURI(_dna);
+        return string(abi.encodePacked(baseURI, "?", paramsURI));
     }
 
     function tokenURI(uint256 tokenId)
@@ -34,18 +85,24 @@ contract ztrore is ERC721, ERC721Enumerable {
             "ERC721 Metadata: URI query for nonexistent token :("
         );
 
+        uint256 dna = tokenDNA[tokenId];
+        string memory image = imageByDNA(dna);
+
         string memory jsonURI = Base64.encode( //Base64.encode take my bytes memory and returns a string
             // abi.encodePacked concatenates my JSON and return it like a bytes memory
             abi.encodePacked(
                 '{ "name": "ztrore #',
                 tokenId,
                 '", "description": "ztrore are randomized NFTs stored on chain to create a DApp, speciffically a NFT markeplace", "image":"',
-                "imageurl",
+                image,
                 '"}'
             )
         );
 
-        return string(abi.encodePacked("data:application/json;base64,", jsonURI));
+        return
+            string(abi.encodePacked("data:application/json;base64,", jsonURI));
+        // We return a JSON with the format: DataURL on Base64, which means that
+        // the platforms can read the data
     }
 
     // The following functions are overrides required by Solidity.

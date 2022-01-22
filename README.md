@@ -3,6 +3,7 @@
 - [Tools and technologies used](#tools-and-technologies-used)
 - [My path](#my-path)
 - [My learning](#my-learning)
+- [Documentation](#documentation)
 
 # Description
 ## Project structure
@@ -22,7 +23,7 @@ It was created with technologies and tools like: Solidity, Open Zeppelin, Hardha
 The path I followed was first backend and smart contracts and then frontend. To see more about my path [scroll down 🔽](#my-path)
 
 ## Technical difficulties ⚗️
-The biggest problems I found was in smart contracts, due to my little knowledge on them. And in the beginning a mental block.
+The biggest problem I found was in smart contracts, due to my little knowledge on them. Also I have some difficulties writing the documentation, due to my regular English.
 
 ## Improvements for the future 🔮
 I thought of two options for the future of this project.
@@ -73,6 +74,32 @@ An EIP or Ethereum Improvement Proposals are formal documents which contains imp
 Extension of a standard, which allow us to add more information to a token, like name, description or tokeURI.
 
 ## [Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
-A url that can return things.
 
-## ADN
+## [Base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64)
+
+# Documentation
+## ztroreDNA
+With this DNA I can define the characteristics of the NFT.
+
+From the DNA we are going to use the last 26 digits, each 2 digits will specify the value of each of the characteristics of the NFT, an example of this is that the last two digits defines the accessorie type, the penultimate two digits defines the color clothes and so moving on two digits to the left which each of our characteristics. If you want to know the exact position of a characteristic check [contracts/ztroreDNA.sol](contracts/ztroreDNA.sol)
+
+Inside the ztroreDNA contract, you can find from lines 5 to 201 a list of arrays, each of these arrays contains the possible value for the characteristic, an example of this is the array _facialHairColor, which can have the value of Auburn, Black, Blonde, BlondeGolden, Brown, BrownDark, Platinum or Red.
+
+Then we have from lines 218 to 294 a list of functions, one for each characteristic, each of these functions receives the parameter _dna, in this case, _dna is the wallet address from the person who is making the transaction. 
+Once inside the function, we create a variable that contains the return value from the function [_getDNASection](#getdnasection), finally, from the characteristic assigned to the function, we return the value in the position of the rest of the division between the variable and the length of the characteristic array. This last calculation is to prevent if the dna section is bigger than the list of values in the characteristic.
+
+### getDNASection
+_getDNASection receives two parameters, first the _dna and second a number that we are going to call _discard. Inside this function the following logic is performed to return a part that iterests us, more specific two digits of the dna, that varies depending on the characteristic that we want to define.
+
+The code that implements all the logic is this:
+```
+(_dna%(1*10**(_discard+2)))/(1*10**_discard)
+```
+We use _discard to discard the numbers that we don't need and depending on the discard number it's going to work like this:
+
+|Discard value|Operation|Part extracted|
+|-|-|-|
+|0|(...024890356123123788 % 100)/1|88|
+|2|(...024890356123123788 % 10000)/100|37|
+|4|(...024890356123123788 % 1000000)/10000|12|
+|6|(...024890356123123788 % 100000000)/1000000|23|
