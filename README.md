@@ -1,6 +1,6 @@
 # ztrore
 This project is separated in two repositories, one for the backend and other for the frontend. To navigate between the two repositories use these links:
-- Frontend: [not yet]()
+- Frontend: [https://github.com/Jofay-zs/ztrore-front](https://github.com/Jofay-zs/ztrore-front)
 - Backend: [https://github.com/Jofay-zs/ztrore](https://github.com/Jofay-zs/ztrore)
 
 In this README.md you will find a documentation more focused on the backend.
@@ -14,7 +14,7 @@ In this README.md you will find a documentation more focused on the backend.
 Develop a DApp (Desentralized Application), where anyone could enter and could generate and obtain their NFT. Also encourage people to develop with web3 technologies.
 
 ## What does the project do ? 🏪
-ztrore is a NFT marketplace compatible with the EIP 721 standar of Ethereum. Where you can be generate and obtain an NFT.
+ztrore is a NFT marketplace compatible with the EIP 721 standar of Ethereum. Where you can generate and obtain an NFT. This are all the NFTs generated: [https://testnets.opensea.io/assets/ztrore](https://testnets.opensea.io/assets/ztrore)
 
 ## How and what was it build with ? 🥣
 It was created with technologies and tools like: Solidity, Open Zeppelin, Hardhat, React, JS, Tailwind, a lot of documetation and videos. To see more about the tools and technologies [scroll down 🔽](#tools-and-technologies-used).
@@ -57,6 +57,8 @@ I thought of two options for the future of this project.
 - ## Nodejs
 
 - ## [Ethereum](https://ethereum.org/en/)
+
+- ## [Infura](https://infura.io/)
 
 - ## [Avatars Generator](https://getavataaars.com/)
     The API that I used to generate the NFTs
