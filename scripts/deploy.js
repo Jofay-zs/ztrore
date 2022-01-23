@@ -7,7 +7,7 @@ const deploy = async () => {
 
   const ztrore = await ethers.getContractFactory("ztrore"); // access the smart contract
 
-  const deployed = await ztrore.deploy();
+  const deployed = await ztrore.deploy(10000);
 
   console.log("ztrore is deployed at:", deployed.address);
 };
