@@ -1,26 +1,25 @@
 # ztrore
+This project is separated in two repositories, one for the backend and other for the frontend. To navigate between the two repositories use these links:
+- Frontend: [not yet]()
+- Backend: [https://github.com/Jofay-zs/ztrore](https://github.com/Jofay-zs/ztrore)
+
+In this README.md you will find a documentation more focused on the backend.
 - [Description](#description)
 - [Tools and technologies used](#tools-and-technologies-used)
 - [My path](#my-path)
-- [My learning](#my-learning)
 - [Documentation](#documentation)
 
 # Description
-## Project structure
-This project is separated in two repositories, one for the backend and other for the frontend. To navigate between the two repositories use these links:
-- Frontend:[not yet]()
-- Backend: [https://github.com/Jofay-zs/ztrore](https://github.com/Jofay-zs/ztrore)
-
 ## What was the goal of the project ? 😀
-Develop a DApp (Desentralized Application) that I enjoy creating, at the same time that I learn a lot of stuff relationated with web3, NFTs and crypto.
+Develop a DApp (Desentralized Application), where anyone could enter and could generate and obtain their NFT. Also encourage people to develop with web3 technologies.
 
 ## What does the project do ? 🏪
-ztrore is a NFT marketplace compatible with the EIP 721 standar of Ethereum. Where each NFT is created from your wallet address and these can be purchased for free.
+ztrore is a NFT marketplace compatible with the EIP 721 standar of Ethereum. Where you can be generate and obtain an NFT.
 
 ## How and what was it build with ? 🥣
 It was created with technologies and tools like: Solidity, Open Zeppelin, Hardhat, React, JS, Tailwind, a lot of documetation and videos. To see more about the tools and technologies [scroll down 🔽](#tools-and-technologies-used).
 
-The path I followed was first backend and smart contracts and then frontend. To see more about my path [scroll down 🔽](#my-path)
+To see about my path [scroll down 🔽](#my-path)
 
 ## Technical difficulties ⚗️
 The biggest problem I found was in smart contracts, due to my little knowledge on them. Also I have some difficulties writing the documentation, due to my regular English.
@@ -53,31 +52,37 @@ I thought of two options for the future of this project.
         - [link02](https://github.com/ethereum/EIPs/issues/721)
     - [ERC721 Enumrable](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721Enumerable)
     - [Counters](https://docs.openzeppelin.com/contracts/4.x/api/utils#Counters)
+    - [Strings utils](https://docs.openzeppelin.com/contracts/4.x/api/utils#Strings)
 
-- ## JS
+- ## Nodejs
+
+- ## [Ethereum](https://ethereum.org/en/)
 
 - ## [Avatars Generator](https://getavataaars.com/)
     The API that I used to generate the NFTs
     
 
 # My path
-The first thing I do was reinforce my knowledge in blockchain, NFTs, Solidity, Ethereum and Web3. Once I felt good, I start developing the smart-contracts and backend. Finally whit the hard part done, I start developing the front-end
+1. I review the technologies and tools that I was going to use in the whole project.
+2. Install the necessary dependencies.
+3. I create a repository for the backend with a generic code.
+4. Develop ztrore smart contract.
+5. Develop ztroreDNA smart contract.
+6. Run tests.
+7. Deploy and test it.
+8. Generate and obtain NFTs from Etherscan.
+9. Viewn my NFTs in OpenSea.
 
-# My learning
+# Documentation
 ## Deploy
 Your script and contract is not deployed to a central server, it is added to the blockchain through a transaction.
 
 ## EIP and ERC
 An EIP or Ethereum Improvement Proposals are formal documents which contains improvement proposals for the Ethereum protocol. And ERC or Ethereum Request for Comments are preliminary proposals for the EIP.
 
-## Metadata
-Extension of a standard, which allow us to add more information to a token, like name, description or tokeURI.
-
 ## [Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
 
 ## [Base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64)
-
-# Documentation
 ## ztroreDNA
 With this DNA I can define the characteristics of the NFT.
 
@@ -97,9 +102,9 @@ The code that implements all the logic is this:
 ```
 We use _discard to discard the numbers that we don't need and depending on the discard number it's going to work like this:
 
-|Discard value|Operation|Part extracted|
-|-|-|-|
-|0|(...024890356123123788 % 100)/1|88|
-|2|(...024890356123123788 % 10000)/100|37|
-|4|(...024890356123123788 % 1000000)/10000|12|
-|6|(...024890356123123788 % 100000000)/1000000|23|
+| Discard value | Operation                                   | Part extracted |
+| ------------- | ------------------------------------------- | -------------- |
+| 0             | (...024890356123123788 % 100)/1             | 88             |
+| 2             | (...024890356123123788 % 10000)/100         | 37             |
+| 4             | (...024890356123123788 % 1000000)/10000     | 12             |
+| 6             | (...024890356123123788 % 100000000)/1000000 | 23             |
