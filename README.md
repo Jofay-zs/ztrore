@@ -4,6 +4,10 @@ This project is separated in two repositories, one for the backend and other for
 - Frontend: [https://github.com/Jofay-zs/ztrore-front](https://github.com/Jofay-zs/ztrore-front)
 - Backend: [https://github.com/Jofay-zs/ztrore](https://github.com/Jofay-zs/ztrore)
 
+Also you can:
+- Interact with the smart-contract: [https://rinkeby.etherscan.io/address/0x8eeFA1BccC82320E4340df3d0A18CDA0926fdc45](https://rinkeby.etherscan.io/address/0x8eeFA1BccC82320E4340df3d0A18CDA0926fdc45)
+- View all the NFTs generated: [https://testnets.opensea.io/assets/ztrore](https://testnets.opensea.io/assets/ztrore)
+
 In this README.md you will find a documentation more focused on the backend.
 - [Description](#description)
 - [Tools and technologies used](#tools-and-technologies-used)
