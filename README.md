@@ -1,5 +1,6 @@
 # ztrore
 ![Cover-image](./cover.png)
+![Cover-image](./cover2.png)
 This project is separated in two repositories, one for the backend and other for the frontend. To navigate between the two repositories use these links:
 - Frontend: [https://github.com/Jofay-zs/ztrore-front](https://github.com/Jofay-zs/ztrore-front)
 - Backend: [https://github.com/Jofay-zs/ztrore](https://github.com/Jofay-zs/ztrore)
